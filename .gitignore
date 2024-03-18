@@ -1,0 +1,13 @@
+# Local settings
+src/.env.local
+
+# Local virtual environment
+venv/
+
+#PyCharm
+.idea/
+**/__pycache__/*
+
+# Certificate files
+key_pair
+*.cer
