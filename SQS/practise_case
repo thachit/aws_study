@@ -1,0 +1,12 @@
+1. Write a program to send - receive message through SQS standard queue and FIFO queue
+    - Producer: send message to SQS
+        + Connect to SQS
+        + Send message
+    - Consumer: receive message and print to the console
+        + Connect to SQS
+        + Send message
+
+    -> Check:
+        - Are messages automatically deleted in the Standard queue? No
+        - Are messages automatically deleted in the FIFO queue?
+2.
