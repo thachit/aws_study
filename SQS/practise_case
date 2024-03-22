@@ -9,4 +9,5 @@
     -> Check:
         - Are messages automatically deleted in the Standard queue? No
         - Are messages automatically deleted in the FIFO queue?
+        - When Consumer 1 receives a message, after 10 seconds, Consumer 2 then receives a message. Can Consumer 1 delete the message? Yes
 2.

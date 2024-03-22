@@ -3,4 +3,7 @@ import os
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 REGION_NAME = os.environ.get("REGION_NAME")
-QUEUE_URL = os.environ.get("QUEUE_URL")
+STANDARD_QUEUE_URL = os.environ.get("STANDARD_QUEUE_URL")
+FIFO_QUEUE_URL = os.environ.get("FIFO_QUEUE_URL")
+
+QUEUE_URL = FIFO_QUEUE_URL
