@@ -3,7 +3,7 @@ import boto3
 
 from enviroment import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, REGION_NAME, QUEUE_URL
 
-SLEEP_TIME = 0.1
+SLEEP_TIME = 0
 PROCESS_TIME_TEST = input("Input process time test: ")
 
 PROCESS_TIME_TEST = int(PROCESS_TIME_TEST)
@@ -19,7 +19,7 @@ sqs = boto3.client(
 )
 
 while True:
-    # print("====================Get Message===============")
+    print("====================Get Message===============")
     response = sqs.receive_message(
         QueueUrl=QUEUE_URL,
         VisibilityTimeout=VISIBILITY_TIMEOUT

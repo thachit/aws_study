@@ -1,4 +1,4 @@
-1. Write a program to send - receive message through SQS standard queue and FIFO queue
+1.  Write a program to send - receive message through SQS standard queue and FIFO queue
     - Producer: send message to SQS
         + Connect to SQS
         + Send message
@@ -8,6 +8,12 @@
 
     -> Check:
         - Are messages automatically deleted in the Standard queue? No
-        - Are messages automatically deleted in the FIFO queue?
+        - Are messages automatically deleted in the FIFO queue? No
         - When Consumer 1 receives a message, after 10 seconds, Consumer 2 then receives a message. Can Consumer 1 delete the message? Yes
-2.
+
+2.  Long polling (Receive message wait time)
+    - Setup Receive message wait time for SQS queue is 10 seconds
+
+    -> check:
+        - How long does the consumer take to get a response from SQS if there are no messages? 10 seconds
+        - If a producer sends a message during the <Long polling> period, how long does it take for the consumer to receive this message? Immediately

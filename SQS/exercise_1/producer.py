@@ -1,6 +1,7 @@
 import json
 import time
 import boto3
+import uuid
 from enviroment import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, REGION_NAME, QUEUE_URL
 
 
@@ -11,10 +12,13 @@ sqs = boto3.client(
     region_name=REGION_NAME
 )
 
+message_group_id = "Order123"
+message_deduplication_id = str(uuid.uuid4())
 
 response = sqs.send_message(
         QueueUrl=QUEUE_URL,
-        DelaySeconds=0,
+        MessageGroupId=message_group_id,
+        MessageDeduplicationId=message_deduplication_id,
         MessageBody=(
             json.dumps({
                 'name': f'Phuong',  # {int(time.time())}
@@ -24,4 +28,4 @@ response = sqs.send_message(
     )
 
 message_id = response.get('MessageId', None)
-print(message_id)
+print(f"Message ID = {message_id}, message_deduplication_id = {message_deduplication_id}")
