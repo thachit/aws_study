@@ -1,4 +1,4 @@
-1.  Write a program to send - receive message through SQS standard queue and FIFO queue
+1.  Write a program for sending and receiving messages through SQS standard and FIFO queues.
     - Producer: send message to SQS
         + Connect to SQS
         + Send message
