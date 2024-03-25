@@ -17,3 +17,9 @@
     -> check:
         - How long does the consumer take to get a response from SQS if there are no messages? 10 seconds
         - If a producer sends a message during the <Long polling> period, how long does it take for the consumer to receive this message? Immediately
+
+3.  Dead letter queue
+    - Setup dead letter queue for Standard Queue
+    - Config Received Count for Standard Queue is 3
+
+    -> Check: When the message has been received 3 times (process failed), what happens? It's transferred to the Dead Letter Queue.

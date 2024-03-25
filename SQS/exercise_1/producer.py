@@ -17,8 +17,8 @@ message_deduplication_id = str(uuid.uuid4())
 
 response = sqs.send_message(
         QueueUrl=QUEUE_URL,
-        MessageGroupId=message_group_id,
-        MessageDeduplicationId=message_deduplication_id,
+        # MessageGroupId=message_group_id,
+        # MessageDeduplicationId=message_deduplication_id,
         MessageBody=(
             json.dumps({
                 'name': f'Phuong',  # {int(time.time())}

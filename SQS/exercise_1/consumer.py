@@ -34,14 +34,14 @@ while True:
         if message_id:
             time.sleep(PROCESS_TIME_TEST)
 
-        try:
-            sqs.delete_message(
-                QueueUrl=QUEUE_URL,
-                ReceiptHandle=receipt_handle
-            )
-
-            print("*** Delete Message successfully")
-        except Exception as exc:
-            print(f"*** Delete Message Failed: {str(exc)}")
+        # try:
+        #     sqs.delete_message(
+        #         QueueUrl=QUEUE_URL,
+        #         ReceiptHandle=receipt_handle
+        #     )
+        #
+        #     print("*** Delete Message successfully")
+        # except Exception as exc:
+        #     print(f"*** Delete Message Failed: {str(exc)}")
 
     time.sleep(SLEEP_TIME)
