@@ -1,0 +1,39 @@
+1.  Create a table student on DynamoDB
+    id: String - Partition key
+    name: String - Sort key
+2.  Write a program using Botto3
+    1.   to insert some records to database
+        records = [{
+            'id': 'st-01',
+            'name': 'Linh',
+            'birthday': '1992/05/06',
+            'hobbies': ['piano', 'travel'],
+            'skill': None,
+            'is_married': False
+        }, {
+            'id': 'st-02',
+            'name': 'Truc',
+            'birthday': '1999/12/03',
+            'hobbies': [],
+            'skill': [''],
+            'is_married': False
+        }, {
+            'id': 'st-03',
+            'name': 'Phuong',
+            'birthday': '2000/08/02',
+            'hobbies': ['gym', 'yoga'],
+            'skill': ['guitar'],
+            'is_married': True
+        }]
+
+        -> Check:
+            - Are columns required when creating table?
+            -
+            -
+    2. Query Student có id = st-01, name = 'Linh'
+    3. Scan student có name = 'Phuong'
+    4. Update Student có id = st-01: birthday = 1993/05/06
+    5. Delete Student có id = st-03
+
+3.  Do (2) again using PynamoDB
+    to insert some records to database
