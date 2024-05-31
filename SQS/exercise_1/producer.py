@@ -4,6 +4,8 @@ import boto3
 import uuid
 from enviroment import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, REGION_NAME, QUEUE_URL
 
+NAME = input("Input name: ")
+AGE = input("Input age: ")
 
 sqs = boto3.client(
     'sqs',
@@ -21,8 +23,8 @@ response = sqs.send_message(
         # MessageDeduplicationId=message_deduplication_id,
         MessageBody=(
             json.dumps({
-                'name': f'Phuong',  # {int(time.time())}
-                'age': 35
+                'name': NAME,  # {int(time.time())}
+                'age': AGE
             })
         )
     )

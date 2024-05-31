@@ -11,3 +11,4 @@ venv/
 # Certificate files
 key_pair
 *.cer
+.DS_Store

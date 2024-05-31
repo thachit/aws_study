@@ -1,10 +1,12 @@
 import time
 import boto3
+import logging
 
 from enviroment import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, REGION_NAME, QUEUE_URL
+logger = logging.getLogger(__name__)
 
-SLEEP_TIME = 0
-PROCESS_TIME_TEST = input("Input process time test: ")
+SLEEP_TIME = 0.1
+PROCESS_TIME_TEST = 5 # input("Input process time test: ")
 
 PROCESS_TIME_TEST = int(PROCESS_TIME_TEST)
 
@@ -19,7 +21,7 @@ sqs = boto3.client(
 )
 
 while True:
-    print("====================Get Message===============")
+    # print("====================Get Message===============")
     response = sqs.receive_message(
         QueueUrl=QUEUE_URL,
         VisibilityTimeout=VISIBILITY_TIMEOUT
@@ -34,14 +36,14 @@ while True:
         if message_id:
             time.sleep(PROCESS_TIME_TEST)
 
-        # try:
-        #     sqs.delete_message(
-        #         QueueUrl=QUEUE_URL,
-        #         ReceiptHandle=receipt_handle
-        #     )
-        #
-        #     print("*** Delete Message successfully")
-        # except Exception as exc:
-        #     print(f"*** Delete Message Failed: {str(exc)}")
+        try:
+            sqs.delete_message(
+                QueueUrl=QUEUE_URL,
+                ReceiptHandle=receipt_handle
+            )
+
+            print("*** Delete Message successfully")
+        except Exception as exc:
+            print(f"*** Delete Message Failed: {str(exc)}")
 
     time.sleep(SLEEP_TIME)
