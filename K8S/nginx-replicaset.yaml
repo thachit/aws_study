@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-replicaset
+  labels:
+    app: nginx-server-rs
+    type: web-server-rs
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-server-pod
+      type: web-server
+  template:
+    metadata:
+      labels:
+        app: nginx-server-pod
+        type: web-server
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
